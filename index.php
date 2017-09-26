@@ -13,6 +13,9 @@ $c = new \Slim\Container($configuration);
 
 $app = new Slim\App($c);
 
+//Middleware protocolo https oscar *ignacio
+$app->add(new \Slim\Middleware\SafeURLMiddleware());
+
 //Dependencias
 $c = $app->getContainer();
 $c['view'] = function(){
@@ -33,3 +36,5 @@ $app->get("/", "\WebControler:cargarHome");
 
 $app->run();
 ?>
+
+
