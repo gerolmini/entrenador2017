@@ -13,6 +13,13 @@ class DataAccess{
         $res = $this->pdo->query($sql);
         return $res->fetchAll();
     }
+    public function getNombre(){
+        $sql = "SELECT * from temas WHERE titulo = $nombre;";
+        $res = $this->pdo->query($sql);
 
+
+
+        return $res->fetchAll();
+    }
 }
 ?>

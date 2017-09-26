@@ -21,7 +21,7 @@ $c['view'] = function(){
     $renderer->addAttribute("BASE_URL", $c->get('request')->getUri()->getBasePath());
     return $renderer;
 };
-
+    //nombre interno
 $c['data'] = function(){
     global $db;
     $dataAccess = new DataAccess($db);
@@ -30,6 +30,8 @@ $c['data'] = function(){
 
 //URLs
 $app->get("/", "\WebControler:cargarHome");
+$app->get("/temas", "\WebControler:listarTemas");
+$app->get("/temas/{nombre}", "\WebControler:listarTemas");
 
 $app->run();
 ?>

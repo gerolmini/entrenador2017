@@ -9,15 +9,12 @@
         <?php require_once "section/header.php"; ?>
         <?php require_once "section/nav.php"; ?>
         <main>
-            <h1>Practica Modulo 3</h1>
-            <h2>Grupo 2</h2>
-            <hr>
-            <?php echo $BASE_URL; ?>
-            <hr>
-            <ul>
+            <h1>Preguntas por tema</h1>
+
+          <ul>
             <?php
                 foreach ($tema as $fila) {
-                    echo "<li>{$fila['titulo']}</li>";
+                    echo "<li><a href='{$fila['titulo_url']}'>{$fila['titulo']}</a></li>";
                 }
             ?>
             </ul>

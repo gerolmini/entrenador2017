@@ -12,5 +12,18 @@ class WebControler{
         return $response;
     }
 
+    public function listarTemas($request, $response, $args){
+        $data['tema'] = $this->c->data->getTemas();
+        $response = $this->c->view->render($response, "temas.php", $data);
+        return $response;
+    }
+
+    public function mostrarPreguntas($request, $response, $args){
+        $nombre = $args['nombre'];
+        $data['tema'] = $this->c->data->getNombre();
+        $response = $this->c->view->render($response, "pregunta.php", $data);
+        return $response;
+    }
+
 }
 ?>
