@@ -68,6 +68,14 @@
             else echo "<li>Creación de la tabla respuestas: <span class='ok'>OK</span></li>";
 
 
+            /* CREAR TABLA ESTADISTICAS*/
+             $sql = "CREATE TABLE Estadisticas(url int primary key not null,visitas Varchar(30));";
+            $res = $conexion->exec($sql);
+            $err=$conexion->errorInfo()[2];
+            if($res===FALSE) echo "<li>Creación de la tabla Estadisticas: <span class='err' title=\"$err\">ERROR</span></li>";
+            else echo "<li>Creación de la tabla Estadisticas: <span class='ok'>OK</span></li>";
+            /* FIN CREACIÓN TABLA ESTADISTICAS */
+
             /* Introducir temas de prueba */
             $sql = "insert into temas(titulo, titulo_url) values
                 ('Matemáticas', 'matematicas'),
