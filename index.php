@@ -33,6 +33,7 @@ $c['data'] = function(){
     global $db;
     $dataAccess = new DataAccess($db);
     return $dataAccess;
+    
 };
 
 //URLs
