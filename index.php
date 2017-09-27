@@ -37,6 +37,8 @@ $c['data'] = function(){
 
 //URLs
 $app->get("/", "\WebControler:cargarHome");
+$app->get("/temas", "\WebControler:listarTemas");
+$app->get("/temas/{nombre}", "\WebControler:listarTemas");
 
 $app->run();
 
