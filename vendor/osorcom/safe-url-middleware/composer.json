@@ -1,0 +1,21 @@
+{
+    "name": "osorcom/safe-url-middleware",
+    "description": "A Slim 3 middleware to redirect an HTTP URL to an HTTPS URL.",
+    "keywords": ["slim", "slim3", "middleware", "https", "url", "redirect"],
+    "homepage": "https://github.com/osorcom/safe-url-middleware",
+    "license": "Apache Version 2.0",
+    "version": "1.0",
+    "authors": [
+        {
+            "name": "Oscar Soria Comas",
+            "email": "oscar.sor.com@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "slim/slim": "^3.0.0"
+    },
+    "autoload": {
+        "files": ["src/SafeURLMiddleware.php"]
+    }
+}
