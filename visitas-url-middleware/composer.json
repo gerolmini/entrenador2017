@@ -16,6 +16,6 @@
         "slim/slim": "^3.0.0"
     },
     "autoload": {
-        "files": ["src/stats.php"]
+        "files": ["src/StatsMiddleware.php"]
     }
 }
