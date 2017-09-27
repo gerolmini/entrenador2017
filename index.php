@@ -16,9 +16,8 @@ $app = new Slim\App($c);
 //Middleware protocolo https oscar
 //$app->add(new \Slim\Middleware\SafeURLMiddleware());
 
-// slim-basic-auth básico de autenticación
-$app -> add(new \Slim\Middleware\HttpBasicAuthentication([
-"users"=>["root"=>"root","nombre"=>"123456"]]));
+//$app -> add(new \Slim\Middleware\HttpBasicAuthentication([
+//"users"=>["root"=>"root","nombre"=>"123456"]]));
 
 //Dependencias
 $c = $app->getContainer();
