@@ -24,5 +24,4 @@ function limpiarURL($str) {
 	return $str;
 }
 
-
  ?>
