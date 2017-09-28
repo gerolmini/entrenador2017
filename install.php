@@ -30,6 +30,7 @@
         <ol>
         <?php
             require_once "config.php";
+            var_dump($db);
             /* Establecer la conexión con el SGBD */
             try{
                 $conexion = new PDO("{$db['type']}:host={$db['host']};port={$db['port']}", $db['user'], $db['pass']);
