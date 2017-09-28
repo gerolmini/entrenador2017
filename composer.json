@@ -4,7 +4,9 @@
         "slim/php-view": "^2.2",
         "osorcom/safe-url-middleware": "^1.0",
         "phpunit/phpunit": "^6.3",
-        "tuupola/slim-basic-auth": "^2.3",
-        "heroku/heroku-buildpack-php": "^124.0"
+        "tuupola/slim-basic-auth": "^2.3"
+    },
+    "require-dev": {
+      "heroku/heroku-buildpack-php": "^124.0"
     }
 }
