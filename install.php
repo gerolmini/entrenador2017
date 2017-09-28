@@ -36,7 +36,7 @@
                 $conexion = new PDO("{$db['type']}:host={$db['host']};port={$db['port']}", $db['user'], $db['pass']);
                 echo "<li>Conexión con el SGBD: <span class='ok'>OK</span></li>";
             }catch(PDOException $e){
-                echo "<li>Conexión con el SGBD: <span class='err'>ERROR</span></li>";
+                echo "<li>Conexión con el SGBD: <span class='err' title='{$e->getMessage();}'>ERROR</span></li>";
             }
 
             /* Crear la BD */
