@@ -28,10 +28,10 @@ class StatsMiddleware
         $res=$con->query($sql);
         foreach($res as $fila)
         {
-          $contador=$fila['clics'];
+          $contador=$fila['visitas'];
          $contador++;
         }
-         $sql= "UPDATE `estadistica` SET `clics` = '$contador' WHERE `estadistica`.`visitas` = '$url';";
+         $sql= "UPDATE `estadistica` SET `visitas` = '$contador' WHERE `estadistica`.`visitas` = '$url';";
         $res=$con->exec($sql);
     
         //die();
