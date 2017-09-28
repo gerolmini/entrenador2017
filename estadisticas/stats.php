@@ -1,15 +1,16 @@
+
 <?php 
 ob_start(); 
 header("Content-type: text/javascript"); 
 
 // Creamos la conexion 
-require_once "config.php";
+require_once "../config.php";
 /* Establecer la conexión con el SGBD */
 try{
     $conexion = new PDO("{$db['type']}:host={$db['host']};port={$db['port']}", $db['user'], $db['pass']);
-    echo "<li>Conexión con el SGBD: <span class='ok'>OK</span></li>";
+    echo "Conexión con el SGBD: OK";
 }catch(PDOException $e){
-    echo "<li>Conexión con el SGBD: <span class='err'>ERROR</span></li>";
+    echo "Conexión con el SGBD: ERROR";
 }
 
 // Obtenemos, y validamos url 
@@ -33,8 +34,8 @@ if (isset($_COOKIE[md5($url)])) {
     $rows = mysqli_num_rows($query); 
     if ($rows > 0) { 
         // Cuando si existe la url actualizamos 
-        $SQL = "UPDATE `entrenador2015` SET `visitas`=visitas+1 WHERE `url`='$url'";
-        if (mysqli_query($con, $SQL)) { // Si se inserta la visita
+        $sql = "UPDATE `entrenador2015` SET `visitas`=visitas+1 WHERE `url`='$url'";
+        if (mysqli_query($con, $sql)) { // Si se inserta la visita
             $visitas = ($row['visitas']) + (1); // Le sumamos uno para mostrar la visita actual
             echo "document.write($visitas);"; 
             setcookie(md5($url), '_vStD', time() + 86400); // Y creamos la cookie de 1 dia
@@ -44,8 +45,8 @@ if (isset($_COOKIE[md5($url)])) {
         } 
     } elseif ($rows == 0) { 
         // Cuando no existe la url en la bd la insertamos 
-        $SQL = "INSERT INTO `entrenador2015` (`url`,`visitas`) VALUES ('$url',1)";
-        if (mysqli_query($con,$SQL)) { // Si se inserta la nueva url
+        $sql = "INSERT INTO `entrenador2015` (`url`,`visitas`) VALUES ('$url',1)";
+        if (mysqli_query($con,$sql)) { // Si se inserta la nueva url
             echo "document.write(1);"; 
             setcookie(md5($url), '_vStD', time() + 86400); // Y creamos la cookie de 1 dia
         } else { // Si no se inserta  

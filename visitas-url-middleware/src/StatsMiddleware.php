@@ -11,18 +11,31 @@
 namespace Slim\Middleware;
 
 
-class SafeURLMiddleware
+class StatsMiddleware
 {
 
-    public function __invoke($request, $response, $next)
-    {
-        if ($request->getUri()->getScheme() !== 'https' ) {
-            $https_url = $request->getUri()->withScheme("https")->withPort(null);
-            $response = $response->withRedirect((string)$https_url, 301);
-        } else {
-            $response = $next($request, $response);
+    public function __invoke($request, $response, $next){
+        // informacion de la url de $request
+        $url=$request->getUri();
+        $url=$url->getPath();
+         try{
+            $con = new PDO('mysql:host=localhost;dbname=bd', "root");
+        }catch(PDOException $e){
+            echo "<div class='error'>".$e->getMessage()."</div>";
+            die();
+          }
+        $sql="SELECT * FROM estadistica WHERE visitas ='$url'";
+        $res=$con->query($sql);
+        foreach($res as $fila)
+        {
+          $contador=$fila['clics'];
+         $contador++;
         }
-        return $response;
+         $sql= "UPDATE `estadistica` SET `clics` = '$contador' WHERE `estadistica`.`visitas` = '$url';";
+        $res=$con->exec($sql);
+    
+        //die();
+        return $next($request, $response);
     }
 }
 
