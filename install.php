@@ -33,18 +33,18 @@
             var_dump($db);
             /* Establecer la conexión con el SGBD */
             try{
-                $conexion = new PDO("{$db['type']}:host={$db['host']};port={$db['port']}", $db['user'], $db['pass']);
+                $conexion = new PDO("{$db['type']}:host={$db['host']};port={$db['port']};dbname={$db['name']}", $db['user'], $db['pass']);
                 echo "<li>Conexión con el SGBD: <span class='ok'>OK</span></li>";
             }catch(PDOException $e){
                 echo "<li>Conexión con el SGBD: <span class='err' title='{$e->getMessage()}'>ERROR</span></li>";
             }
 
             /* Crear la BD */
-            $sql = "create database {$db['name']}; use {$db['name']};";
+            /*$sql = "create database {$db['name']}; use {$db['name']};";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la BD: <span class='err' title=\"$err\">ERROR</span></li>";
-            else echo "<li>Creación de la BD: <span class='ok'>OK</span></li>";
+            else echo "<li>Creación de la BD: <span class='ok'>OK</span></li>";*/
 
 
             /* Crear la tabla temas */
