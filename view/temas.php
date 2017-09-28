@@ -14,7 +14,7 @@
           <ul>
             <?php
                 foreach ($tema as $fila) {
-                    echo "<li><a href='{$fila['titulo_url']}'>{$fila['titulo']}</a></li>";
+                    echo "<li><a href='temas/{$fila['titulo_url']}'>{$fila['titulo']}</a></li>";
                 }
             ?>
             </ul>

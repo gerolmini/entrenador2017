@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,13 +12,33 @@
         <main>
             <h1>Preguntas por tema</h1>
 
-          <ul>
-            <?php
-                foreach ($tema as $fila) {
-                    echo "<li><a href='{$fila['titulo_url']}'>{$fila['titulo']}</a></li>";
-                }
-            ?>
-            </ul>
+            <h3>Tema elegido: <?php  ?></h3>
+
+
+          <form class="" action="index.html" method="get">
+
+              <?php
+                  echo "<input type='text' value='{$preg['pregunta']}' /> <br />";
+
+                    foreach ($resp as $r) {
+                      echo "<input type='radio' name='resp' value='{$r['respuesta']}'>{$r['respuesta']}<br />";
+                    }
+
+              ?>
+              <input type="submit" value="enviar respuesta">
+              <a href="pregunta.php">Siguiente pregunta</a>
+        </form>
+
+          <?php
+
+                //if(isset($_GET['resp'])) $id = $_GET['resp'];
+
+
+
+
+
+           ?>
+
         </main>
         <?php require_once "section/footer.php"; ?>
     </body>

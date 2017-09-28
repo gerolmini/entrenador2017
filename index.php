@@ -31,7 +31,9 @@ $c['data'] = function(){
 //URLs
 $app->get("/", "\WebControler:cargarHome");
 $app->get("/temas", "\WebControler:listarTemas");
-$app->get("/temas/{nombre}", "\WebControler:listarTemas");
+$app->get("/temas/{nombre}", "\WebControler:mostrarPreguntas");
+$app->get("/crear-pregunta", "\WebControler:nuevaPreguntaForm");
+$app->post("/crear-pregunta", "\WebControler:");
 
 $app->run();
 ?>

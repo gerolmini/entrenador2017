@@ -20,10 +20,23 @@ class WebControler{
 
     public function mostrarPreguntas($request, $response, $args){
         $nombre = $args['nombre'];
-        $data['tema'] = $this->c->data->getNombre();
+        $data = $this->c->data->getQuestion($nombre);
         $response = $this->c->view->render($response, "pregunta.php", $data);
         return $response;
     }
 
+    public function nuevaPreguntaForm($request, $response, $args){
+
+        $data['tema'] = $this->c->data->getTemas();
+        $response = $this->c->view->render($response, "newquestion.php", $data);
+        return $response;
+    }
+
+    public function crearPregunta($request, $response, $args){
+        $nombre = $args['nombre'];
+        $data = $this->c->data->getQuestion($nombre);
+        $response = $this->c->view->render($response, "pregunta.php", $data);
+        return $response;
+    }
 }
 ?>
