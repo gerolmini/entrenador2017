@@ -62,7 +62,7 @@
             else echo "<li>Creación de la tabla preguntas: <span class='ok'>OK</span></li>";
 
             /* Crear la tabla respuestas */
-            $sql = "create table respuestas(id serial primary key, respuesta varchar(150) not null, verdadera tinyint(1), pregunta int, foreign key (pregunta) references preguntas(id));";
+            $sql = "create table respuestas(id serial primary key, respuesta varchar(150) not null, verdadera boolean, pregunta int, foreign key (pregunta) references preguntas(id));";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la tabla respuestas: <span class='err' title=\"$err\">ERROR</span></li>";
@@ -88,7 +88,7 @@
 
             /* Introducir respuestas de prueba */
             $sql = "insert into respuestas(respuesta, verdadera, pregunta) values
-                ('10', 1, 1),('55', 0, 1),('25',0,1),('15',0,1);";
+                ('10', true, 1),('55', false, 1),('25',false,1),('15',false,1);";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Introducción de respuestas de prueba: <span class='err' title=\"$err\">ERROR</span></li>";
