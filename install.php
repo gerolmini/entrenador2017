@@ -47,21 +47,21 @@
 
 
             /* Crear la tabla temas */
-            $sql = "create table temas(id int auto_increment primary key, titulo varchar(30) not null, titulo_url varchar(30) not null unique);";
+            $sql = "create table temas(id serial primary key, titulo varchar(30) not null, titulo_url varchar(30) not null unique);";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la tabla temas: <span class='err' title=\"$err\">ERROR</span></li>";
             else echo "<li>Creación de la tabla temas: <span class='ok'>OK</span></li>";
 
             /* Crear la tabla preguntas */
-            $sql = "create table preguntas(id int auto_increment primary key, pregunta varchar(150) not null, tema int, foreign key (tema) references temas(id));";
+            $sql = "create table preguntas(id serial primary key, pregunta varchar(150) not null, tema int, foreign key (tema) references temas(id));";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la tabla preguntas: <span class='err' title=\"$err\">ERROR</span></li>";
             else echo "<li>Creación de la tabla preguntas: <span class='ok'>OK</span></li>";
 
             /* Crear la tabla respuestas */
-            $sql = "create table respuestas(id int auto_increment primary key, respuesta varchar(150) not null, verdadera tinyint(1), pregunta int, foreign key (pregunta) references preguntas(id));";
+            $sql = "create table respuestas(id serial primary key, respuesta varchar(150) not null, verdadera tinyint(1), pregunta int, foreign key (pregunta) references preguntas(id));";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la tabla respuestas: <span class='err' title=\"$err\">ERROR</span></li>";
