@@ -30,38 +30,39 @@
         <ol>
         <?php
             require_once "config.php";
+            var_dump($db);
             /* Establecer la conexión con el SGBD */
             try{
-                $conexion = new PDO("{$db['type']}:host={$db['host']};port={$db['port']}", $db['user'], $db['pass']);
+                $conexion = new PDO("{$db['type']}:host={$db['host']};port={$db['port']};dbname={$db['name']}", $db['user'], $db['pass']);
                 echo "<li>Conexión con el SGBD: <span class='ok'>OK</span></li>";
             }catch(PDOException $e){
-                echo "<li>Conexión con el SGBD: <span class='err'>ERROR</span></li>";
+                echo "<li>Conexión con el SGBD: <span class='err' title='{$e->getMessage()}'>ERROR</span></li>";
             }
 
             /* Crear la BD */
-            $sql = "create database {$db['name']}; use {$db['name']};";
+            /*$sql = "create database {$db['name']}; use {$db['name']};";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la BD: <span class='err' title=\"$err\">ERROR</span></li>";
-            else echo "<li>Creación de la BD: <span class='ok'>OK</span></li>";
+            else echo "<li>Creación de la BD: <span class='ok'>OK</span></li>";*/
 
 
             /* Crear la tabla temas */
-            $sql = "create table temas(id int auto_increment primary key, titulo varchar(30) not null, titulo_url varchar(30) not null unique);";
+            $sql = "create table temas(id serial primary key, titulo varchar(30) not null, titulo_url varchar(30) not null unique);";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la tabla temas: <span class='err' title=\"$err\">ERROR</span></li>";
             else echo "<li>Creación de la tabla temas: <span class='ok'>OK</span></li>";
 
             /* Crear la tabla preguntas */
-            $sql = "create table preguntas(id int auto_increment primary key, pregunta varchar(150) not null, tema int, foreign key (tema) references temas(id));";
+            $sql = "create table preguntas(id serial primary key, pregunta varchar(150) not null, tema int, foreign key (tema) references temas(id));";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la tabla preguntas: <span class='err' title=\"$err\">ERROR</span></li>";
             else echo "<li>Creación de la tabla preguntas: <span class='ok'>OK</span></li>";
 
             /* Crear la tabla respuestas */
-            $sql = "create table respuestas(id int auto_increment primary key, respuesta varchar(150) not null, verdadera tinyint(1), pregunta int, foreign key (pregunta) references preguntas(id));";
+            $sql = "create table respuestas(id serial primary key, respuesta varchar(150) not null, verdadera boolean, pregunta int, foreign key (pregunta) references preguntas(id));";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Creación de la tabla respuestas: <span class='err' title=\"$err\">ERROR</span></li>";
@@ -87,7 +88,7 @@
 
             /* Introducir respuestas de prueba */
             $sql = "insert into respuestas(respuesta, verdadera, pregunta) values
-                ('10', 1, 1),('55', 0, 1),('25',0,1),('15',0,1);";
+                ('10', true, 1),('55', false, 1),('25',false,1),('15',false,1);";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
             if($res===FALSE) echo "<li>Introducción de respuestas de prueba: <span class='err' title=\"$err\">ERROR</span></li>";
