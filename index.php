@@ -14,10 +14,10 @@ $c = new \Slim\Container($configuration);
 $app = new Slim\App($c);
 
 //Middleware protocolo https oscar
-//$app->add(new \Slim\Middleware\SafeURLMiddleware());
+$app->add(new \Slim\Middleware\SafeURLMiddleware());
 
-//$app -> add(new \Slim\Middleware\HttpBasicAuthentication([
-//"users"=>["root"=>"root","nombre"=>"123456"]]));
+$app -> add(new \Slim\Middleware\HttpBasicAuthentication([
+"users"=>["root"=>"root","nombre"=>"123456"]]));
 
 //Dependencias
 $c = $app->getContainer();
@@ -40,6 +40,9 @@ $app->get("/", "\WebControler:cargarHome");
 $app->get("/temas", "\WebControler:listarTemas");
 $app->get("/temas/{nombre}", "\WebControler:mostrarPreguntas");
 $app->get("/crear-pregunta", "\WebControler:nuevaPreguntaForm");
-$app->post("/crear-pregunta", "\WebControler:");
+$app->post("/enviar-pregunta", "\WebControler:");
+//ENLACE A ESTADISTICAS
+$app->get("/estadisticas-url","\webControler:estadisticasUrl");
+
 $app->run();
 ?>
