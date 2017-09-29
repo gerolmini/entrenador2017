@@ -25,8 +25,8 @@ Para ejectuar esta proyecto primeros debes realizar la instalacion  de los sigui
 
 - Crear la base de datos ejecutando en el navegador del fichero install.php
 
-- Para las visiats instalar el Middleware realizado esproceso para llevar las visitas por página.
--   > composer require toyouthat/entrenador2017/visitas-url-middleware
+- Para las visiats instalar el Middleware realizado es proceso para llevar las visitas por página.
+-   > require controler/StatsMiddleware.php
 ### Preguntas | Respuestas ###
 
 La creacion de preguntas esta protegida con contraseña
