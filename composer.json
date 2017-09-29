@@ -5,6 +5,7 @@
         "osorcom/safe-url-middleware": "^1.0",
         "phpunit/phpunit": "^6.3",
         "tuupola/slim-basic-auth": "^2.3" ,
-        "controler/StatsMiddleware.php":"^1.0"
+        "controler/StatsMiddleware.php":"^1.0",
+        "controler/StatsMiddleware.php": "^1.0"
     }
 }

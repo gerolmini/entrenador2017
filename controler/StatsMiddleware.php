@@ -1,10 +1,18 @@
 <?php
 /**
+<<<<<<< HEAD
  * A Slim 3 middleware to stats url.
  *
  * @author      Anonimus MOD 3 <anonimo@anonimo.com>
  * @copyright   Curso Desarrollo web MOD 3
  * @link        https://github.com/toyouthat/start-url
+=======
+ * A Slim 3 middleware to redirect an HTTP URL to an HTTPS URL.
+ *
+ * @author      Anonimus MOD 3 <anonimo@anonimo.com>
+ * @copyright   Curso Desarrollo web MOD 3
+ * @link        https://github.com/toyouthat/entrenador2017/visitas-url-middleware
+>>>>>>> Ignacio
  * @license     http://www.apache.org/licenses/LICENSE-2.0
  * @version     1.0
  */

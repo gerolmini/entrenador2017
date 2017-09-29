@@ -1,3 +1,7 @@
 vendor
 composer.lock
 .htaccess
+<<<<<<< HEAD
+=======
+web
+>>>>>>> Ignacio
