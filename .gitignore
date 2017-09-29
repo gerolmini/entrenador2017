@@ -1,9 +1,4 @@
 vendor
-<<<<<<< HEAD
 composer.lock
 .htaccess
 web
-=======
-.htaccess
-xx.htaccess
->>>>>>> 4432f17499e419d0143fc21a3d2a6455d8f79a46
