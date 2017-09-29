@@ -9,7 +9,8 @@
         <?php require_once "section/header.php"; ?>
         <?php require_once "section/nav.php"; ?>
         <main>
-            <h1>HOME</h1>
+            <h1>Practica Modulo 3</h1>
+            <h2>Grupo 2</h2>
             <hr>
             <?php echo $BASE_URL; ?>
             <hr>
