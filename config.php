@@ -1,11 +1,12 @@
 <?php
+$dat = parse_url(getenv('DATABASE_URL'));
     $db = [
-        'host' => "localhost",
-        'name' => "entrenador2017",
-        'user' => "root",
-        'pass' => "",
-        'port' => "3306",
-        'type' => "mysql"
+        'host' => $dat['host'],
+        'name' => ltrim($dat['path'], '/'),
+        'user' => $dat['user'],
+        'pass' => $dat['pass'],
+        'port' => $dat['port'],
+        'type' => "pgsql"
     ];
 
     global $db;

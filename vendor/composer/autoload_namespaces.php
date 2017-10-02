@@ -7,4 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+<<<<<<< HEAD
+=======
+    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
+>>>>>>> 245e8ea558c4df0b882f8d63ec0789802532744f
 );
