@@ -14,7 +14,7 @@ class WebControler{
 
     public function estadisticasUrl($request, $response, $args){
         $data['tema'] = $this->c->data->getTemas();
-        $response = $this->c->view->render($response, "view/chart.php", $data);
+        $response = $this->c->view->render($response, "chart.php", $data);
         return $response;
     }
 
