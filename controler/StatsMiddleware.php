@@ -1,7 +1,6 @@
 <?php
 /**
  * A Slim 3 middleware to stats url.
- *
  * @author      Anonimus MOD 3 <anonimo@anonimo.com>
  * @copyright   Curso Desarrollo web MOD 3
  * @link        https://github.com/toyouthat/start-url
