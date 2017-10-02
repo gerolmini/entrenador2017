@@ -1,15 +1,31 @@
 <?php
+/**
+* Acceso a la base de datos.
+*
+*
+*/
 class DataAccess{
     private $pdo;
     public function __construct($db){
         $this->pdo = new PDO("{$db['type']}:host={$db['host']};port={$db['port']};dbname={$db['name']}", $db['user'], $db['pass']);
         $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
+    /**
+    * Función que realiza consulta a la base de datos.
+    *
+    * @param void $res muestra todos los resultados encontrados en la base de datos.
+    */
     public function getTemas(){
         $sql = "select * from temas;";
         $res = $this->pdo->query($sql);
         return $res->fetchAll();
     }
+    /**
+    * Función que realiza consultas a la base de datos.
+    *
+    * @param void $res Muestra el resultado de la consulta.
+    *
+    */
     public function getQuestion($nombre){
         //Obtener el id minimo y maximo entre los id que cumplen con la condicion (titulo_url=$nombre y t.id = p.tema)
         $sql = "SELECT MIN(p.id) as 'mini', MAX(p.id) as 'maxi' from temas t, preguntas p WHERE t.titulo_url = '$nombre' AND t.id = p.tema;";
