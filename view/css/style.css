@@ -4,10 +4,207 @@ header, footer, nav{
     padding: 1em;
 }
 
+nav ul{
+  list-style-type: none;
+}
+nav li{
+  display: inline;
+  margin: 2%;
+}
+
 nav a{
     color: white;
+    font-size: 1.3em;
+
 }
 
 nav a:hover{
     color: gold;
 }
+
+footer a{
+  color:lightblue;
+  font-size: 1.2em;
+}
+
+section{
+      width: 80%;
+      margin: auto;
+      height: auto;
+      min-height: 200px;
+      background-color: lightgrey;
+      margin-top: 2%;
+      margin-bottom: 2%;
+  }
+
+  /********Home.php*****/
+
+  .home{
+    font-size: 1.2em;
+    margin-left: 10%;
+    padding: 0.5%;
+  }
+
+  #gr{
+    color: blue;
+  }
+
+/****TEMAS.PHP*****/
+ h1{
+   margin-left: 5%;
+ }
+  #t{
+    color:blue;
+    margin-left: 20%;
+  }
+
+ .tema{
+    list-style-type: none;
+
+
+  }
+  .tema li{
+        width: 70%;
+        margin: auto;
+
+
+  }
+
+  .tema a{
+        text-decoration: none;
+        font-size: 1.2em;
+        color: darkgreen;
+        border: 1px solid white;
+        display: block;
+        padding: 10px;
+        text-align: center
+
+    }
+
+   .tema a:hover{
+        background-color: cadetblue;
+       }
+
+    /******PREGUNTA.PHP*******/
+     .pregunta input[type=text]{
+
+           width: 80%;
+       }
+
+     .pregunta input[type=submit]{
+
+       border-radius:10px;
+       padding: 0.7%;
+
+     }
+
+     .pregunta input[type=radio]{
+
+       font-size: 1.4em;
+
+     }
+
+     .pregunta a {
+       border: 1px solid grey;
+       border-radius: 10px;
+       font-size: 1.4em;
+       padding:0.5%;
+       margin-left: 1%;
+       background-color: royalblue;
+       color: white;
+     }
+
+     .eleccion{
+       font-size: 1.5em;
+       color: blue;
+     }
+
+    /*******RESPUESTA.PHP*********/
+    #respuestas{
+      width: 20%;
+      height: 10%;
+      margin-left: 10%;
+      background-color: blue;
+    }
+
+    #respuesta .ok {
+
+        background-color: green;
+        color: white;
+        width: 50%;
+        height: 50%;
+        padding: 1%;
+        margin: 2%;
+      }
+
+    #respuesta .error {
+
+      background-color: red;
+      color: white;
+      width: 50%;
+      height: 50%;
+      padding: 1%;
+      margin: 2%;
+    }
+
+
+      #respuesta a{
+        border-radius: 10px;
+        background-color: blue;
+        color: white;
+        padding: 5px;
+        font-size: 1.2em;
+        margin-left: 5%;
+      }
+
+    /********NEWQUESTION.PHP*******/
+    .newq label, input, fieldset{
+             font-size: 1.2em;
+             margin: 0.7em;
+             padding: 0.4em;
+       }
+
+    .newq #q{
+         width: 80%;
+         margin-left: 5%;
+        }
+
+    .newq #cl{
+         width: 50%;
+         margin-left: 5%;
+        }
+    .newq .but{
+          border-radius: 10px;
+          background-color: royalblue;
+          color: white;
+          padding: 5px;
+          font-size: 1em;
+          margin-left: 10%;
+          margin-bottom: 1%
+
+        }
+
+      .newq .but[type=button]{
+            position:relative;
+            left: 40%;
+
+        }
+
+      /******showquestion.php*******/
+
+      .sq{
+        border-radius: 10px;
+        background-color: dimgrey;
+        color: white;
+        padding: 5px;
+        font-size: 1.2em;
+        margin-left: 3%;
+      }
+
+      .ok{
+        color: green;
+        margin-left:3%;
+        margin-top: 3%;
+        font-size: 1.4em;
+
+      }

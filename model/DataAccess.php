@@ -15,26 +15,31 @@ class DataAccess{
     }
     public function getQuestion($nombre){
 
-        //Obtener el id minimo y maximo entre los id que cumplen con la condicion (titulo_url=$nombre y t.id = p.tema)
-        $sql = "SELECT MIN(p.id) as 'mini', MAX(p.id) as 'maxi' from temas t, preguntas p WHERE t.titulo_url = '$nombre' AND t.id = p.tema;";
+        //Obtener array de id que cumplen con la condicion (titulo_url=$nombre y t.id = p.tema)
+        $sql = "SELECT p.id as 'r' from temas t, preguntas p WHERE t.titulo_url = '$nombre' AND t.id = p.tema;";
+
         $res = $this->pdo->query($sql);
-        $idrango = $res->fetch();
 
-        //Selecciona id al azar
-        $id = rand($idrango['mini'], $idrango['maxi']);
+        $idrango = $res->fetchAll(PDO::FETCH_COLUMN);
 
-        //Seleccion de la pregunta que corresponde al id anterior
-        $sql = "SELECT id, pregunta from preguntas  WHERE  id = $id;";
-        $res = $this->pdo->query($sql);
-        $preg = $res->fetch();
+            if (!$idrango == []) {
 
-        //Seleccion de las respuestas que contiene la pregunta anterior
-        $sql = "SELECT id, respuesta from respuestas  WHERE pregunta = {$preg['id']};";
-        $res = $this->pdo->query($sql);
-        $resp= $res->fetchAll();
+            //Seleccion al azar de un valor del array anterior
+            $ran = array_rand(array_flip($idrango));
 
+            $id = $ran;
+            //Seleccion de la pregunta que corresponde al id anterior
+            $sql = "SELECT id, pregunta from preguntas  WHERE  id = $id;";
+            $res = $this->pdo->query($sql);
+            $preg = $res->fetch();
 
-      return ["preg"=>$preg, "resp"=>$resp];
+            //Seleccion de las respuestas que contiene la pregunta anterior
+            $sql = "SELECT id, respuesta from respuestas  WHERE pregunta = {$preg['id']};";
+            $res = $this->pdo->query($sql);
+            $resp= $res->fetchAll();
+
+          return ["preg"=>$preg, "resp"=>$resp];
+        }
 
     }
 
@@ -46,6 +51,13 @@ class DataAccess{
       return $res->fetch();
     }
 
+    public function tituloUrlDeIdRespuesta($id){
+          $sql = "SELECT t.titulo_url from temas t, preguntas p, respuestas r  WHERE r.id = {$id} and r.pregunta = p.id and p.tema = t.id;";
+          $res = $this->pdo->query($sql);
+
+          return $res->fetchAll(PDO::FETCH_COLUMN);
+    }
+
     public function newQuestion($tema, $preg, $resp, $vof){
       $temaurl= strtolower($tema);
       //insertar tema
@@ -54,9 +66,10 @@ class DataAccess{
 
           $res = $this->pdo->exec($sql);
 
-        if($res===false){
+       /* if($res===false){
         echo "<div class=''><p>No se han podido insertar los datos.</p><p>".$this->pdo->errorInfo()[2]."</p></div>";
-      }
+      }*/
+
       //extraer id para insertar en tabla preguntas columna tema
       $sql = "SELECT id FROM temas WHERE titulo = '$tema'";
 
@@ -69,9 +82,9 @@ class DataAccess{
 
               $res = $this->pdo->exec($sql);
 
-          if($res===false){
+       /*   if($res===false){
           echo "<div class=''><p>No se han podido insertar los datos.</p><p>".$this->pdo->errorInfo()[2]."</p></div>";
-        }
+        }*/
 
       //Extraer id de pregunta para insertar en respuestas
       //$sql = "SELECT id FROM preguntas WHERE tema = '$tema'";
@@ -87,9 +100,9 @@ class DataAccess{
                 VALUES('$value', $correcta, {$idpreg})";
         $res = $this->pdo->exec($sql);
 
-        if($res===false){
+      /*  if($res===false){
         echo "<div class=''><p>No se han podido insertar los datos.</p><p>".$this->pdo->errorInfo()[2]."</p></div>";
-      }
+      }*/
       }
 
         return $res;

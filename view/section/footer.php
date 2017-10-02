@@ -7,4 +7,5 @@
       <li>Xavi</li>
       <li>Mariano</li>
     </ul>
+   <p>Enlace a nuestro Git HUB <a target="_blank" href="https://github.com/gerolmini/entrenador2017">AQUI</a></p>
 </footer>

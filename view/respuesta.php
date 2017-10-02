@@ -5,45 +5,15 @@
         <title>Entrenador 2017</title>
         <link rel="stylesheet" href="<?php echo $BASE_URL ?>/view/css/style.css">
 
-        <style media="screen">
-        section{
-          width: 20%;
-          height: 10%;
-          margin-left: 10%;
-          background-color: blue;
-        }
-
-        .ok {
-
-            background-color: green;
-            color: white;
-          }
-
-        .error {
-
-              background-color: red;
-              color: white;
-              text-align: center;
-            }
-
-          a{
-            color: white;
-          }
-        </style>
-
     </head>
     <body>
         <?php require_once "section/header.php"; ?>
         <?php require_once "section/nav.php"; ?>
         <main>
-            <h1>Preguntas por tema</h1>
 
-
-
-          <section>
+          <section id="respuesta">
             <?php
-            
-            echo $verdadera;
+
             if ($verdadera==0) {
                 echo "<h2 class='error'>
                 Respuesta incorrecta
@@ -53,9 +23,9 @@
                 Respuesta correcta
                 </h2>";
               }
-
+        
           ?>
-        <a href="pregunta.php">Siguiente pregunta</a>
+            <a href="<?php echo $BASE_URL; ?>/temas/<?php echo $titulo_url[0]; ?>">Siguiente pregunta</a>
         </section>
 
 

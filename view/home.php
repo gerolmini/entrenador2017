@@ -9,18 +9,22 @@
         <?php require_once "section/header.php"; ?>
         <?php require_once "section/nav.php"; ?>
         <main>
+          <section>
+
+
             <h1>Practica Modulo 3</h1>
-            <h2>Grupo 2</h2>
+            <h2 id="gr">Grupo 2</h2>
             <hr>
             <?php echo $BASE_URL; ?>
             <hr>
             <ul>
             <?php
                 foreach ($tema as $fila) {
-                    echo "<li>{$fila['titulo']}</li>";
+                    echo "<li class='home'>{$fila['titulo']}</li>";
                 }
             ?>
             </ul>
+          </section>
         </main>
         <?php require_once "section/footer.php"; ?>
     </body>

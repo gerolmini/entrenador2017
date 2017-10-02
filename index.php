@@ -34,7 +34,7 @@ $app->get("/temas", "\WebControler:listarTemas");
 $app->get("/temas/validar", "\WebControler:validar");
 $app->get("/temas/{nombre}", "\WebControler:mostrarPreguntas");
 $app->get("/crear-pregunta", "\WebControler:nuevaPreguntaForm");
-$app->get("/enviar-pregunta", "\WebControler:crearPregunta");
+$app->post("/enviar-pregunta", "\WebControler:crearPregunta");
 
 
 $app->run();

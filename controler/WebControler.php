@@ -30,6 +30,7 @@ class WebControler{
 
       $id = $request->getQueryParam('resp');
       $data['verdadera'] = $this->c->data->validar($id)['verdadera'];
+      $data['titulo_url'] = $this->c->data->tituloUrlDeIdRespuesta($id);
       $response = $this->c->view->render($response, "respuesta.php", $data);
       return $response;
 
@@ -44,11 +45,11 @@ class WebControler{
 
     public function crearPregunta($request, $response, $args){
 
-        $correcta = $request->getQueryParam('correcta');
-        $tema = $request->getQueryParam('tema');
-        $preg = $request->getQueryParam('question');
-        $resp = $request->getQueryParam('respuestas');
-        //$data = [$correcta, $tema, $preg, $resp];
+        $params = $request->getParsedBody();
+        $tema = $params['tema'];
+        $preg = $params['question'];
+        $resp = $params['respuestas'];
+        $correcta = $params['correcta'];
 
         $data[] = $this->c->data->newQuestion($tema, $preg, $resp, $correcta);
         $response = $this->c->view->render($response, "showquestion.php", $data);

@@ -70,7 +70,7 @@
 
             /* Introducir temas de prueba */
             $sql = "insert into temas(titulo, titulo_url) values
-                ('Matemáticas', 'matematicas'),
+                ('Matemáticas', 'matemáticas'),
                 ('Física', 'fisica');";
             $res = $conexion->exec($sql);
             $err=$conexion->errorInfo()[2];
