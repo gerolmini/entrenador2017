@@ -1,4 +1,4 @@
 RewriteEngine On
-RewriteBase /entrenador2017/
+RewriteBase /piox/entrenador2017/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
