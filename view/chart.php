@@ -57,15 +57,22 @@
                             backgroundColor: "rgba(220,220,220,0.5)",
                             data: [
                             <?php
-                                try
+                                try {
+                                     $con = new PDO ("mysql:host=localhost;dbname=bd","root");
+                                }
+                                catch(PDOException $e)
                                     {
-                                        $con = new PDO ("mysql:host=localhost;dbname=bd","root");
-                                        catch(PDOException $e){
-                                                echo "Error:".$e->getMessage();
-                                                die();
-                                        }
-                                    }
+                                        echo "Error:".$e->getMessage();
+                                        die();
+                                }$sql="SELECT visitas from estadisticas ORDER BY `visitas`.`url`";
+                                $res=$con->query($sql);
 
+                                foreach ($res as $resultado)
+                                {
+                                    ?>
+                                    "<?php echo $resultado['visitas'];?>",
+                                    <?php
+                                }
                             ?>
                         ]
                         }]
